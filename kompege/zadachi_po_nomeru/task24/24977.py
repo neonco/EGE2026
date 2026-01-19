@@ -1,15 +1,24 @@
-from collections import Counter
-
 with open('24_24977.txt') as f:
     s = f.readline()
 
-print(len(s))
-print(Counter(s))
+# 2?0?2?6
 
-for i in range(0, 10):
-    i += 1
-    print(i)
+cnt = 0
+l = 0
+res = 0
+for r in range(6, len(s)):
+    if s[r-6]+s[r-4]+s[r-2]+s[r] == '2026':
+        cnt += 1
+    while cnt > 10:
+        if s[l]+s[l+2]+s[l+4]+s[l+6] == '2026':
+            cnt -= 1
+        l += 1
+    res = max(res, r - l + 1)
+print(res)
 
-# m = []
-# for i in range(len(s)):
-#     if s[i] == '2' and s[i+2] == '0' and s[i+4] == '2' and s[i+6] == '6':
+# 942
+
+
+
+
+
