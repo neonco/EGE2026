@@ -8,7 +8,7 @@ for var in product(alph, repeat=6):
     if word[0] != 'А':
         if word.count('У') > 0:
             if word.count('М') == 2:
-                # print(word)
+                # print(word) 
                 res += 1
 
 print(res)
