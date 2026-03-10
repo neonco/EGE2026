@@ -13,3 +13,5 @@ for w in product(a, repeat=4):
                 print(w)
                 res += 1
 print(res)
+
+# 522
