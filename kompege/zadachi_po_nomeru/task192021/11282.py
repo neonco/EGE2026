@@ -11,7 +11,7 @@ def f(s, target, hod=0):
     ]
     # return all(m) if flag else any(m)
     if flag:
-        return any(m)
+        return all(m)
     else:
         return any(m)
 
