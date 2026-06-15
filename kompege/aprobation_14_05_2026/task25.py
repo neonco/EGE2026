@@ -6,7 +6,6 @@ def f(n):
             res.add(n//d)
     return sorted(res)
 
-
 x = 7_800_000
 for n in range(x+1, x+3000):
     pr = [x for x in f(n) if len(f(x)) == 2]
