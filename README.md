@@ -1,6 +1,8 @@
 # ЕГЭ по информатике
 
-Решения задач на Python.
+**Сайт с решениями: [neonco.github.io/EGE2026](https://neonco.github.io/EGE2026/)** (собирается автоматически через GitHub Actions).
+
+Решения задач на Python (а также таблицами и скриншотами).
 
 Задачи именуются номерами из банка задач с сайта Алексея Кабанова — [kompege.ru/task](https://kompege.ru/task). Все варианты сопоставлены с банком: каждое решение лежит в `kompege/zadachi_po_nomeru/taskN/` под своим ID kompege.
 

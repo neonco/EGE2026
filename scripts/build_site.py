@@ -10,7 +10,8 @@ ROOT = Path(__file__).resolve().parent.parent
 ZPN = ROOT / "kompege" / "zadachi_po_nomeru"
 OUT = ROOT / "site" / "index.html"
 
-tasks = []  # {num, id, part?, code, data: [...], gh}
+tasks = []  # {num, id, kind: py|img|table, part?, code?, file?, data: [...]}
+DATA_EXT = (".txt", ".xls", ".xlsx", ".ods")
 for d in sorted(ZPN.iterdir()):
     if not d.is_dir() or not d.name.startswith("task"):
         continue
@@ -25,22 +26,30 @@ for d in sorted(ZPN.iterdir()):
             tid = sub.name
             for f in sorted(sub.glob("27_[AB]_*.py")):
                 part = f.name.split("_")[1]
-                data = [p.name for p in sub.iterdir()
-                        if p.suffix.lower() in (".txt", ".xls", ".xlsx", ".ods")]
-                tasks.append({"num": 27, "id": tid, "part": part,
+                data = [p.name for p in sub.iterdir() if p.suffix.lower() in DATA_EXT]
+                tasks.append({"num": 27, "id": tid, "part": part, "kind": "py",
                               "code": f.read_text(encoding="utf-8"),
                               "data": sorted(data)})
     else:
-        for f in sorted(d.glob("*.py")):
+        def data_for(tid):
+            return sorted(p.name for p in d.iterdir()
+                          if p.stem.startswith(f"{num}_{tid}") or p.stem.startswith(f"{num}.{num}_{tid}")
+                          if p.suffix.lower() in DATA_EXT)
+        for f in sorted(d.iterdir()):
             m = re.match(r"^(\d{4,6})$", f.stem)
             if not m:
-                continue  # пропускаем *_slow, *bad и прочие альтернативы
+                continue  # пропускаем *_slow, *bad, файлы данных N_ID.*
             tid = m.group(1)
-            data = [p.name for p in d.iterdir()
-                    if p.stem.startswith(f"{num}_{tid}") or p.stem.startswith(f"{num}.{num}_{tid}")
-                    if p.suffix.lower() in (".txt", ".xls", ".xlsx", ".ods")]
-            tasks.append({"num": num, "id": tid, "code": f.read_text(encoding="utf-8"),
-                          "data": sorted(data)})
+            ext = f.suffix.lower()
+            if ext == ".py":
+                tasks.append({"num": num, "id": tid, "kind": "py",
+                              "code": f.read_text(encoding="utf-8"), "data": data_for(tid)})
+            elif ext in (".png", ".jpg", ".jpeg"):
+                tasks.append({"num": num, "id": tid, "kind": "img",
+                              "file": f.name, "data": data_for(tid)})
+            elif ext in (".ods", ".xlsx"):
+                tasks.append({"num": num, "id": tid, "kind": "table",
+                              "file": f.name, "data": data_for(tid)})
 
 by_num = {}
 for t in tasks:
@@ -80,10 +89,9 @@ h1{font-size:40px;font-weight:300;letter-spacing:-.5px}
 #theme{background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);
   padding:7px 11px;cursor:pointer;font-size:14px}
 .chips{max-width:1080px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:6px}
-.chip{padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:var(--card);
-  color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+.chip{padding:8px 18px;border-radius:999px;border:1px solid var(--border);background:var(--card);
+  color:var(--fg);font-size:16px;cursor:pointer;font-family:inherit;min-width:52px}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
-.chip small{opacity:.7;margin-left:3px}
 main{max-width:1080px;margin:0 auto;padding:0 24px}
 .numhead{display:flex;align-items:baseline;gap:12px;margin:34px 0 12px;border-bottom:1px solid var(--border);padding-bottom:8px}
 .numhead h2{font-size:24px;font-weight:300}
@@ -98,6 +106,8 @@ main{max-width:1080px;margin:0 auto;padding:0 24px}
 pre{background:var(--code-bg);border-top:1px solid var(--border);padding:14px 16px;overflow-x:auto;
   font-family:Consolas,Monaco,monospace;font-size:13.5px;line-height:1.55;display:none}
 .card.open pre{display:block}
+pre.imgbox{background:var(--bg);text-align:center}
+pre.imgbox img{max-width:100%;height:auto;border-radius:6px}
 .toggle{color:var(--faint);font-size:12px;cursor:pointer;user-select:none}
 .k{color:#0000a0;font-weight:600}html[data-theme="dark"] .k{color:#7aa2f7}
 .s{color:#2e7d32}html[data-theme="dark"] .s{color:#9ece6a}
@@ -111,7 +121,7 @@ footer{max-width:1080px;margin:40px auto 0;padding:0 24px;color:var(--faint);fon
 <body>
 <header>
   <h1>ЕГЭ Информатика · банк решений</h1>
-  <p class="sub"><span id="total"></span> · python · задачи с <a href="https://kompege.ru/task">kompege.ru</a> ·
+  <p class="sub"><span id="total"></span> · python, таблицы, скриншоты · задачи с <a href="https://kompege.ru/task">kompege.ru</a> ·
     <a href="https://github.com/neonco/EGE2026">github.com/neonco/EGE2026</a></p>
 </header>
 <div class="bar"><div class="bar-in">
@@ -152,9 +162,8 @@ const chipsEl = $('#chips');
 let activeNum = null, query = '';
 
 chipsEl.innerHTML = nums.map(n=>{
-  const c = TASKS.filter(t=>t.num===n).length;
   const label = n===19 ? '19–21' : n;
-  return `<button class="chip" data-n="${n}">${label}<small>${c}</small></button>`;
+  return `<button class="chip" data-n="${n}">${label}</button>`;
 }).join('');
 
 function label(n){ return n===19 ? 'Задания 19–21' : 'Задание '+n; }
@@ -176,15 +185,30 @@ function render(){
       const card = document.createElement('div');
       card.className='card';
       const part = t.part ? ` · часть ${t.part}` : '';
-      const dataLinks = t.data.map(d=>
-        `<a href="https://github.com/neonco/EGE2026/blob/master/kompege/zadachi_po_nomeru/${n===27?`task27/${t.id}`:(n===19?'task192021':'task'+n)}/${d}">${d}</a>`).join('');
+      const dir = n===27 ? `task27/${t.id}` : (n===19 ? 'task192021' : 'task'+n);
+      const ghBase = `https://github.com/neonco/EGE2026/blob/master/kompege/zadachi_po_nomeru/${dir}`;
+      const rawBase = `https://raw.githubusercontent.com/neonco/EGE2026/master/kompege/zadachi_po_nomeru/${dir}`;
+      const dataLinks = t.data.map(d=>`<a href="${ghBase}/${d}">${d}</a>`).join('');
+      let bodyHtml, toggleLabel;
+      if (t.kind === 'img') {
+        bodyHtml = `<pre class="imgbox"><img loading="lazy" src="${rawBase}/${t.file}" alt="Решение ${t.id}"></pre>`;
+        toggleLabel = 'картинка ▾';
+      } else if (t.kind === 'table') {
+        bodyHtml = '';
+        toggleLabel = '';
+      } else {
+        bodyHtml = `<pre>${hl(t.code)}</pre>`;
+        toggleLabel = 'код ▾';
+      }
+      const tableLink = t.kind === 'table'
+        ? `<a href="${ghBase}/${t.file}">таблица ${t.file}</a>` : '';
       card.innerHTML = `
         <div class="card-h">
           <span class="tid"><a href="https://kompege.ru/task?id=${t.id}" target="_blank" rel="noopener">№ ${t.id}</a>${part}</span>
-          <span class="toggle">код ▾</span>
-          <span class="links">${dataLinks}</span>
+          <span class="toggle">${toggleLabel}</span>
+          <span class="links">${tableLink}${dataLinks}</span>
         </div>
-        <pre>${hl(t.code)}</pre>`;
+        ${bodyHtml}`;
       card.querySelector('.card-h').addEventListener('click', e=>{
         if (e.target.tagName==='A') return;
         card.classList.toggle('open');
@@ -206,8 +230,7 @@ $('#q').addEventListener('input', e=>{ query = e.target.value.trim(); render(); 
 
 const root = document.documentElement;
 const saved = localStorage.getItem('ege-theme');
-if (saved) root.dataset.theme = saved;
-else if (matchMedia('(prefers-color-scheme: dark)').matches) root.dataset.theme = 'dark';
+if (saved) root.dataset.theme = saved;  // по умолчанию — светлая
 $('#theme').addEventListener('click', ()=>{
   root.dataset.theme = root.dataset.theme==='dark' ? '' : 'dark';
   localStorage.setItem('ege-theme', root.dataset.theme);
