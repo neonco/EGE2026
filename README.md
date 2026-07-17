@@ -5,42 +5,11 @@
 Задачи именуются номерами из банка задач с сайта Алексея Кабанова — [kompege.ru/task](https://kompege.ru/task). Все варианты сопоставлены с банком: каждое решение лежит в `kompege/zadachi_po_nomeru/taskN/` под своим ID kompege.
 
 
-## Покрытие банка kompege
-
-| № | Решено | В банке | % |
-|---|--------|---------|---|
-| 1 | 0 | 238 | 0% |
-| 2 | 12 | 229 | 5% |
-| 3 | 0 | 222 | 0% |
-| 4 | 0 | 228 | 0% |
-| 5 | 13 | 291 | 4% |
-| 6 | 0 | 227 | 0% |
-| 7 | 5 | 300 | 2% |
-| 8 | 5 | 343 | 1% |
-| 9 | 3 | 216 | 1% |
-| 10 | 0 | 191 | 0% |
-| 11 | 0 | 244 | 0% |
-| 12 | 4 | 61 | 7% |
-| 13 | 7 | 173 | 4% |
-| 14 | 10 | 313 | 3% |
-| 15 | 18 | 271 | 7% |
-| 16 | 21 | 254 | 8% |
-| 17 | 10 | 230 | 4% |
-| 18 | 0 | 227 | 0% |
-| 19–21 | 7 | 234 | 3% |
-| 22 | 0 | 207 | 0% |
-| 23 | 14 | 275 | 5% |
-| 24 | 37 | 308 | 12% |
-| 25 | 17 | 305 | 6% |
-| 26 | 20 | 234 | 9% |
-| 27 | 21 | 118 | 18% |
-| **Σ** | **224** | **5939** | **4%** |
-
 ## Решения по номерам
 
-ID ведёт на задачу на kompege, `py` — на файл решения, `данные` — на файл(ы) с входными данными.
+ID ведёт на задачу на kompege, `py` — на файл решения.
 
-<details><summary><b>Задание 2</b> — 12 реш.</summary>
+<details><summary><b>Задание 2</b></summary>
 
 - [20569](https://kompege.ru/task?id=20569) — [py](kompege/zadachi_po_nomeru/task2/20569.py)
 - [23548](https://kompege.ru/task?id=23548) — [py](kompege/zadachi_po_nomeru/task2/23548.py)
@@ -57,7 +26,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 5</b> — 13 реш.</summary>
+<details><summary><b>Задание 5</b></summary>
 
 - [20330](https://kompege.ru/task?id=20330) — [py](kompege/zadachi_po_nomeru/task5/20330.py)
 - [21891](https://kompege.ru/task?id=21891) — [py](kompege/zadachi_po_nomeru/task5/21891.py)
@@ -75,7 +44,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 7</b> — 5 реш.</summary>
+<details><summary><b>Задание 7</b></summary>
 
 - [27025](https://kompege.ru/task?id=27025) — [py](kompege/zadachi_po_nomeru/task7/27025.py)
 - [28216](https://kompege.ru/task?id=28216) — [py](kompege/zadachi_po_nomeru/task7/28216.py)
@@ -85,7 +54,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 8</b> — 5 реш.</summary>
+<details><summary><b>Задание 8</b></summary>
 
 - [23746](https://kompege.ru/task?id=23746) — [py](kompege/zadachi_po_nomeru/task8/23746.py)
 - [26356](https://kompege.ru/task?id=26356) — [py](kompege/zadachi_po_nomeru/task8/26356.py)
@@ -95,7 +64,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 9</b> — 3 реш.</summary>
+<details><summary><b>Задание 9</b></summary>
 
 - [24227](https://kompege.ru/task?id=24227) — [py](kompege/zadachi_po_nomeru/task9/24227.py)
 - [24360](https://kompege.ru/task?id=24360) — [py](kompege/zadachi_po_nomeru/task9/24360.py)
@@ -103,7 +72,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 12</b> — 4 реш.</summary>
+<details><summary><b>Задание 12</b></summary>
 
 - [24104](https://kompege.ru/task?id=24104) — [py](kompege/zadachi_po_nomeru/task12/24104.py)
 - [25301](https://kompege.ru/task?id=25301) — [py](kompege/zadachi_po_nomeru/task12/25301.py)
@@ -112,7 +81,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 13</b> — 7 реш.</summary>
+<details><summary><b>Задание 13</b></summary>
 
 - [22467](https://kompege.ru/task?id=22467) — [py](kompege/zadachi_po_nomeru/task13/22467.py)
 - [24971](https://kompege.ru/task?id=24971) — [py](kompege/zadachi_po_nomeru/task13/24971.py)
@@ -124,7 +93,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 14</b> — 10 реш.</summary>
+<details><summary><b>Задание 14</b></summary>
 
 - [24048](https://kompege.ru/task?id=24048) — [py](kompege/zadachi_po_nomeru/task14/24048.py)
 - [24606](https://kompege.ru/task?id=24606) — [py](kompege/zadachi_po_nomeru/task14/24606.py)
@@ -139,7 +108,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 15</b> — 18 реш.</summary>
+<details><summary><b>Задание 15</b></summary>
 
 - [11845](https://kompege.ru/task?id=11845) — [py](kompege/zadachi_po_nomeru/task15/11845.py)
 - [18044](https://kompege.ru/task?id=18044) — [py](kompege/zadachi_po_nomeru/task15/18044.py)
@@ -162,7 +131,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 16</b> — 21 реш.</summary>
+<details><summary><b>Задание 16</b></summary>
 
 - [20341](https://kompege.ru/task?id=20341) — [py](kompege/zadachi_po_nomeru/task16/20341.py)
 - [21504](https://kompege.ru/task?id=21504) — [py](kompege/zadachi_po_nomeru/task16/21504.py)
@@ -188,7 +157,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 17</b> — 10 реш.</summary>
+<details><summary><b>Задание 17</b></summary>
 
 - [20342](https://kompege.ru/task?id=20342) — [py](kompege/zadachi_po_nomeru/task17/20342.py)
 - [21416](https://kompege.ru/task?id=21416) — [py](kompege/zadachi_po_nomeru/task17/21416.py)
@@ -203,7 +172,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 19–21</b> — 7 реш.</summary>
+<details><summary><b>Задание 19–21</b></summary>
 
 - [11282](https://kompege.ru/task?id=11282) — [py](kompege/zadachi_po_nomeru/task192021/11282.py)
 - [17532](https://kompege.ru/task?id=17532) — [py](kompege/zadachi_po_nomeru/task192021/17532.py)
@@ -215,7 +184,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 23</b> — 14 реш.</summary>
+<details><summary><b>Задание 23</b></summary>
 
 - [20346](https://kompege.ru/task?id=20346) — [py](kompege/zadachi_po_nomeru/task23/20346.py)
 - [21510](https://kompege.ru/task?id=21510) — [py](kompege/zadachi_po_nomeru/task23/21510.py)
@@ -234,7 +203,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 24</b> — 37 реш.</summary>
+<details><summary><b>Задание 24</b></summary>
 
 - [13570](https://kompege.ru/task?id=13570) — [py](kompege/zadachi_po_nomeru/task24/13570.py)
 - [17685](https://kompege.ru/task?id=17685) — [py](kompege/zadachi_po_nomeru/task24/17685.py)
@@ -276,7 +245,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 25</b> — 17 реш.</summary>
+<details><summary><b>Задание 25</b></summary>
 
 - [11470](https://kompege.ru/task?id=11470) — [py](kompege/zadachi_po_nomeru/task25/11470.py)
 - [17686](https://kompege.ru/task?id=17686) — [py](kompege/zadachi_po_nomeru/task25/17686.py)
@@ -298,7 +267,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 26</b> — 20 реш.</summary>
+<details><summary><b>Задание 26</b></summary>
 
 - [13394](https://kompege.ru/task?id=13394) — [py](kompege/zadachi_po_nomeru/task26/13394.py)
 - [17643](https://kompege.ru/task?id=17643) — [py](kompege/zadachi_po_nomeru/task26/17643.py)
@@ -323,7 +292,7 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 
 </details>
 
-<details><summary><b>Задание 27</b> — 21 реш.</summary>
+<details><summary><b>Задание 27</b></summary>
 
 - [18678 часть A](https://kompege.ru/task?id=18678) — [py](kompege/zadachi_po_nomeru/task27/18678/27_A_18678.py), [данные](kompege/zadachi_po_nomeru/task27/18678/)
 - [25300 часть A](https://kompege.ru/task?id=25300) — [py](kompege/zadachi_po_nomeru/task27/25300/27_A_25300.py), [данные](kompege/zadachi_po_nomeru/task27/25300/)
