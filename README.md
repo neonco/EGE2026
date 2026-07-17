@@ -322,3 +322,41 @@ ID ведёт на задачу на kompege, `py` — на файл решен�
 ## Варианты
 
 Решённые варианты лежат в `kompege/<Автор_N>/`; сопоставление с банком выполнено по kim-номерам вариантов с [kompege.ru/archive](https://kompege.ru/archive) (47 контрольных якорей, расхождений 0).
+
+| Папка | Вариант на kompege |
+|-------|--------------------|
+| `aprobation_04_03_2026_var1` | [Апробация 04.03.26](https://kompege.ru/variant?kim=25163454) |
+| `aprobation_04_03_2026_var2` | [Апробация 04.03.26 II](https://kompege.ru/variant?kim=25164989) |
+| `aprobation_14_05_2026` | [Апробация 14.05.26](https://kompege.ru/variant?kim=25192097) |
+| `ARogov_1` | [Вариант 1.2025](https://kompege.ru/variant?kim=25138308) |
+| `ARogov_10` | [Вариант 10.2025 Антишаблонный](https://kompege.ru/variant?kim=25140445) |
+| `ARogov_2` | [Вариант 2.2025](https://kompege.ru/variant?kim=25138309) |
+| `ARogov_3` | [Вариант 3.2025](https://kompege.ru/variant?kim=25138311) |
+| `ARogov_5` | [Вариант 5.2025](https://kompege.ru/variant?kim=25138313) |
+| `ARogov_6` | [Вариант 6.2025](https://kompege.ru/variant?kim=25138319) |
+| `DByte_1` | [—](https://kompege.ru/variant?kim=25109507) |
+| `DByte_2` | [—](https://kompege.ru/variant?kim=25115343) |
+| `DByte_3` | [—](https://kompege.ru/variant?kim=25124397) |
+| `DByte_4` | [—](https://kompege.ru/variant?kim=25135264) |
+| `DByte_5` | [—](https://kompege.ru/variant?kim=25143077) |
+| `DByte_6` | [—](https://kompege.ru/variant?kim=25154203) |
+| `DByte_7` | [—](https://kompege.ru/variant?kim=25167515) |
+| `DByte_8` | [—](https://kompege.ru/variant?kim=25177298) |
+| `DByte_9` | [—](https://kompege.ru/variant?kim=25189996) |
+| `dosrok2026` | [Досрочная волна 2026](https://kompege.ru/variant?kim=25177268) |
+| `LShastin_DBahtiev_1` | [В1Г2526](https://kompege.ru/variant?kim=25112400) |
+| `LShastin_DBahtiev_10` | [В10Г2526](https://kompege.ru/variant?kim=25183809) |
+| `LShastin_DBahtiev_14` | [В14Г2526](https://kompege.ru/variant?kim=25198084) |
+| `LShastin_DBahtiev_4` | [Вариант №4 (256)](https://kompege.ru/variant?kim=25141693) |
+| `LShastin_DBahtiev_7` | [В7Г2526](https://kompege.ru/variant?kim=25165560) |
+| `LShastin_DBahtiev_8` | [Вариант №8 (258)](https://kompege.ru/variant?kim=25145224) |
+| `MMigunov` | [Вариант №1](https://kompege.ru/variant?kim=25106570) |
+| `rezerv_26_06_2026` | [Резерв 22.06.26](https://kompege.ru/variant?kim=25203502) |
+| `SGorbachev_1` | [Сергей Горбачев #1](https://kompege.ru/variant?kim=25111879) |
+| `SGorbachev_2` | [Сергей Горбачев #2](https://kompege.ru/variant?kim=25121111) |
+| `SGorbachev_3` | [Сергей Горбачев #3](https://kompege.ru/variant?kim=25196800) |
+| `SSergeev_MVardoev_3` | [—](https://kompege.ru/variant?kim=25134173) |
+| `SSergeev_MVardoev_4` | [вар 4](https://kompege.ru/variant?kim=25142942) |
+| `TNikitin` | [—](https://kompege.ru/variant?kim=25186594) |
+| `VLashin_KIglin_6` | [вариант 6](https://kompege.ru/variant?kim=25147031) |
+| `VLashin_KIglin_8` | [8 вариант](https://kompege.ru/variant?kim=25167211) |
