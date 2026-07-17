@@ -1,5 +1,5 @@
 def f(a, b, t, h=0):
-    flag = h%2 == t%2
+    flag = t % 2 == h % 2
     if a + b >= 65:
         return flag
     if h > t:
@@ -12,13 +12,12 @@ def f(a, b, t, h=0):
     ]
     return all(m) if flag else any(m)
 
-
 for s in range(1, 58+1):
-    for t in range(8):
+    for t in range(7):
         if f(6, s, t):
             print(s, t)
             break
 
-# 19 7
-# 21 10 19
-# 22 18
+# 7
+# 10 19
+# 18
