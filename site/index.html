@@ -33,6 +33,8 @@ h1{font-size:40px;font-weight:300;letter-spacing:-.5px}
 .chip{padding:8px 18px;border-radius:999px;border:1px solid var(--border);background:var(--card);
   color:var(--fg);font-size:16px;cursor:pointer;font-family:inherit;min-width:52px}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.chip.stub{opacity:.45;border-style:dashed;cursor:default}
+.chip.stub.on{opacity:.8;background:var(--card);color:var(--muted);border-color:var(--border);font-weight:400}
 main{max-width:1080px;margin:0 auto;padding:0 24px}
 .numhead{display:flex;align-items:baseline;gap:12px;margin:34px 0 12px;border-bottom:1px solid var(--border);padding-bottom:8px}
 .numhead h2{font-size:24px;font-weight:300}
@@ -98,13 +100,20 @@ function hl(code){
   return s;
 }
 
-const nums = [...new Set(TASKS.map(t=>t.num))].sort((a,b)=>a-b);
+const haveNums = [...new Set(TASKS.map(t=>t.num))].sort((a,b)=>a-b);
+const nums = [];
+for (let i = 1; i <= 27; i++) {
+  if (i === 20 || i === 21) continue;  // 19–21 — один номер
+  nums.push(i);
+}
 const chipsEl = $('#chips');
 let activeNum = null, query = '';
 
 chipsEl.innerHTML = nums.map(n=>{
   const label = n===19 ? '19–21' : n;
-  return `<button class="chip" data-n="${n}">${label}</button>`;
+  const stub = haveNums.includes(n) ? '' : ' stub';
+  const title = stub ? ' title="пока нет решений"' : '';
+  return `<button class="chip${stub}" data-n="${n}"${title}>${label}</button>`;
 }).join('');
 
 function label(n){ return n===19 ? 'Задания 19–21' : 'Задание '+n; }
@@ -113,7 +122,7 @@ function render(){
   const main = $('#main'); main.innerHTML='';
   let shown = 0;
   nums.forEach(n=>{
-    if (activeNum && n!==activeNum) return;
+    if (activeNum && !query && n!==activeNum) return;
     const list = TASKS.filter(t=>t.num===n &&
       (!query || t.id.includes(query)));
     if (!list.length) return;
