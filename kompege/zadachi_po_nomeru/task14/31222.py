@@ -14,4 +14,4 @@ for x in '0123456789abcdefghi':
     s = a + b + c
     print(x, s / 18)
 
-# 365875995 
+# 365875995

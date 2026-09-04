@@ -162,12 +162,12 @@ function hl(code){
   let s = esc(code);
   const store = [];
   s = s.replace(/(#[^\\n]*|"(?:[^"\\\\\\n]|\\\\.)*"|'(?:[^'\\\\\\n]|\\\\.)*')/g, m => {
-    store.push(m); return "\\u0000" + (store.length-1) + "\\u0000";
+    store.push(m); return "\\u0000S" + (store.length-1) + "\\u0000";
   });
   s = s.replace(KW,'<span class="k">$1</span>')
        .replace(BI,'<span class="b">$1</span>')
        .replace(/\\b(\\d+(?:\\.\\d+)?)\\b/g,'<span class="n">$1</span>');
-  s = s.replace(/\\u0000(\\d+)\\u0000/g, (_,i)=>{
+  s = s.replace(/\\u0000S(\\d+)\\u0000/g, (_,i)=>{
     const t = store[+i];
     return t.startsWith('#') ? '<span class="c">'+t+'</span>' : '<span class="s">'+t+'</span>';
   });
