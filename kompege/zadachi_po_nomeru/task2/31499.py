@@ -16,4 +16,3 @@ for w, x, y, z in product(range(2), repeat=4):
         print(y, x, z, w, f)
 
 # yxzw
-# Hello 7 class!
